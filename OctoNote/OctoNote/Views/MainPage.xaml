@@ -1,0 +1,170 @@
+﻿<Page x:Class="OctoNote.Views.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Margin="0 5 0 10"
+	Title="MainPage">
+
+    <Page.Resources>
+        <ResourceDictionary Source=".\Styles\MainPage.xaml"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Column="0">
+            <TabControl x:Name="MainTabControl" Style="{StaticResource ResourceKey=TabStyle}" SelectionChanged="MainTabControl_SelectionChanged">
+                <TabControl.Resources>
+                    <Style TargetType="TabPanel">
+                        <Setter Property="HorizontalAlignment" Value="Center" />
+                        <Setter Property="Margin" Value="0"/>
+                    </Style>
+                </TabControl.Resources>
+            </TabControl>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel
+                Grid.Column="0"
+                HorizontalAlignment="left"
+                Margin="10 0 10 0"
+                Orientation="Vertical">
+
+                <StackPanel Orientation="Horizontal">
+                
+                    <RadioButton
+                        Name="RB1"
+                        Click="LayoutButton_Click"
+                        Content="▣"
+                        FontSize="12"
+                        GroupName="LayoutsGroup"
+                        IsChecked="True"
+                        Style="{StaticResource ResourceKey=RadioButtonStyle}"
+                        ToolTip="Layout: 1×1 │ 8 Tabs"
+                        />
+                    <RadioButton
+                        Name="RB2"
+                        Click="LayoutButton_Click"
+                        Content="▣▣"
+                        FontSize="6"
+                        GroupName="LayoutsGroup"
+                        Style="{StaticResource ResourceKey=RadioButtonStyle}"
+                        ToolTip="Layout: 2×1 │ 4 Tabs"
+                        />
+                    <RadioButton
+                        Name="RB3"
+                        Click="LayoutButton_Click"
+                        Content="▣&#xD;&#xA;▣"
+                        FontSize="6"
+                        GroupName="LayoutsGroup"
+                        Style="{StaticResource ResourceKey=RadioButtonStyle}"
+                        ToolTip="Layout: 1×2 │ 4 Tabs"
+                        />
+                    <RadioButton
+                        Name="RB4"
+                        Click="LayoutButton_Click"
+                        Content="▣▣&#xD;&#xA;▣▣"
+                        FontSize="6"
+                        GroupName="LayoutsGroup"
+                        Style="{StaticResource ResourceKey=RadioButtonStyle}"
+                        ToolTip="Layout: 2×2 │ 2 Tabs"
+                        />
+                </StackPanel>
+
+                <StackPanel  Orientation="Horizontal">
+                    <RadioButton
+                    Name="RB5"
+                    Click="LayoutButton_Click"
+                    Content="▣▣▣▣"
+                        GroupName="LayoutsGroup"
+                    FontSize="3"
+                    Style="{StaticResource ResourceKey=RadioButtonStyle}"
+                    ToolTip="Layout: 4×1 │ 2 Tabs"
+                    />
+                    <RadioButton
+                        Name="RB6"
+                        Click="LayoutButton_Click"
+                        Content="▣&#xD;&#xA;▣&#xD;&#xA;▣&#xD;&#xA;▣"
+                        GroupName="LayoutsGroup"
+                        FontSize="3"
+                        Style="{StaticResource ResourceKey=RadioButtonStyle}"
+                        ToolTip="Layout: 1×4 │ 2 Tabs"
+                    />
+                    <RadioButton
+                        Name="RB7"
+                        Click="LayoutButton_Click"
+                        Content="▣▣▣▣&#xD;&#xA;▣▣▣▣"
+                        GroupName="LayoutsGroup"
+                        FontSize="3"
+                        Style="{StaticResource ResourceKey=RadioButtonStyle}"
+                        ToolTip="Layout: 4×2 │ 1 Tab"
+                        />
+                    <RadioButton
+                        Name="RB8"
+                        Click="LayoutButton_Click"
+                        GroupName="LayoutsGroup"
+                        Content="▣▣&#xD;&#xA;▣▣&#xD;&#xA;▣▣&#xD;&#xA;▣▣"
+                        FontSize="3"
+                        Style="{StaticResource ResourceKey=RadioButtonStyle}"
+                        ToolTip="Layout: 2×4 │ 1 Tab"
+                    />
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel
+                Grid.Column="1"
+                HorizontalAlignment="Right"
+                Margin="10 0 10 0"
+                Orientation="Horizontal">
+                                
+                <Button
+                    x:Name="SaveButton"
+                    Click="SaveButton_Click"
+                    Content="save"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Tag="💾"
+                    ToolTip="Save text to the current data file."
+                    />
+                <Button
+                    x:Name="ReloadButton"
+                    Click="ReloadButton_Click"
+                    Content="reload"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Tag="🔃"
+                    ToolTip="Reload the current, last saved, data file."
+                    />
+                <Button
+                    x:Name="ArchiveButton"
+                    Click="ArchiveButton_Click"
+                    Content="archive"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Tag="💼"
+                    ToolTip="Create an archive file for data backup."
+                    />
+                <Button
+                    x:Name="ExplorerButton"
+                    Click="ExplorerButton_Click"
+                    Content="goto"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Tag="📂"
+                    ToolTip="Show the program directory in Windows Explorer."
+                    />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
